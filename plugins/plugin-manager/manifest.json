@@ -1,6 +1,6 @@
 {
     "id": "plugin-manager",
-    "name": "Plugin Manager",
+    "name": "管理扩展插件",
     "version": "1.0.0",
     "description": "Adds an external plugin manager to bypass restrictions of browser marketplaces.",
     "author": "LennardF1989",
