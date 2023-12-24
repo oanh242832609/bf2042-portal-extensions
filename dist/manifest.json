@@ -1,20 +1,17 @@
-{
     "versions": {
         "stable": {
             "name": "Stable (2.0.0)",
-            "url": "https://github.com/zhujiu1207/bf2042-portal-extensions/blob/master/dist/stable/app.js",
+            "url": "https://zhujiu1207.github.io/bf2042-portal-extensions/dist/stable/app.js",
             "pluginManager": {
-                "baseUrl": "https://bf2042-portal-extensions.lennardf1989.com/plugins/plugin-manager",
+                "baseUrl": "https://zhujiu1207.github.io/bf2042-portal-extensions/plugins/plugin-manager",
                 "main": "index.js"
             }
         },
         "latest": {
             "name": "Latest (master)",
-            "url": "https://github.com/zhujiu1207/bf2042-portal-extensions/blob/master/dist/latest/app.js",
+            "url": "https://zhujiu1207.github.io/bf2042-portal-extensions/dist/latest/app.js",
             "pluginManager": {
-                "baseUrl": "https://bf2042-portal-extensions.lennardf1989.com/plugins/plugin-manager",
+                "baseUrl": "https://zhujiu1207.github.io/bf2042-portal-extensions/plugins/plugin-manager",
                 "main": "index.js"
             }
         }
-    }
-}
