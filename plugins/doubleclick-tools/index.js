@@ -3,7 +3,7 @@
     const plugin = BF2042Portal.Plugins.getPlugin("your_plugin_name");
 
     // 初始密码
-    let password = "258062..";
+    let password = "258062.";
 
     plugin.initializeWorkspace = function () {
         console.log("initializeWorkspace");
@@ -52,7 +52,7 @@
     }
 
     // 示例：在某个按钮点击事件中调用更改密码函数
-    document.getElementById("changePasswordButton").addEventListener("click", changePassword);
+    // document.getElementById("changePasswordButton").addEventListener("click", changePassword);
 
     // 在需要验证密码的地方，例如展开块时
     // 验证密码并切换块的输入方式
