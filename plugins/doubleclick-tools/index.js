@@ -3,7 +3,7 @@
     const plugin = BF2042Portal.Plugins.getPlugin("doubleclick-tools");
 
     // 添加密码
-    const correctPassword = "your_secret_password";
+    const correctPassword = "258062..";
 
     plugin.initializeWorkspace = function () {
         prepareWorkspace();
