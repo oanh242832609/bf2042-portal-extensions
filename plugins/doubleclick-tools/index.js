@@ -1,41 +1,39 @@
 /* global BF2042Portal, _Blockly */
 (function () {
-    const plugin = BF2042Portal.Plugins.getPlugin("doubleclick-tools");
-
-    // 添加密码
-    const correctPassword = "258062";
+    const plugin = BF2042Portal.Plugins.getPlugin(
+        "doubleclick-tools",
+    );
 
     plugin.initializeWorkspace = function () {
         prepareWorkspace();
     };
 
     function prepareWorkspace() {
+        /** @type import("blockly").WorkspaceSvg */
         let workspace = _Blockly.getMainWorkspace();
+
+        let ctrlKey = false;
         let lastClickTime = undefined;
 
         document.addEventListener("keydown", function (e) {
-            const ctrlKey = e.ctrlKey;
-            workspace.getAllBlocks().forEach(function (block) {
-                block.passwordRequired = ctrlKey;
-            });
+            ctrlKey = e.ctrlKey;
+        });
+    
+        document.addEventListener("keyup", function (e) {
+            ctrlKey = e.ctrlKey;
         });
 
         workspace.addChangeListener(function (e) {
             if (e.type === _Blockly.Events.CLICK && e.targetType === "block") {
-                if (lastClickTime && Date.now() - lastClickTime < 200) {
+                if(lastClickTime && Date.now() - lastClickTime < 200) {
+                    /** @type import("blockly").BlockSvg */
                     const block = workspace.getBlockById(e.blockId);
-                    const isCollapsed = block.isCollapsed();
 
-                    if (isCollapsed || !block.passwordRequired) {
-                        block.setCollapsed(!isCollapsed);
-                    } else {
-                        // 验证密码
-                        const userInput = prompt("请输入密码:");
-                        if (userInput !== correctPassword) {
-                            alert("密码错误，无法展开块！");
-                            return;
-                        }
-                        block.setCollapsed(false);
+                    if(ctrlKey) {
+                        block.setInputsInline(!block.getInputsInline());
+                    }
+                    else {
+                        block.setCollapsed(!block.isCollapsed());
                     }
                 }
 
