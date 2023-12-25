@@ -3,7 +3,7 @@
     const plugin = BF2042Portal.Plugins.getPlugin("doubleclick-tools");
 
     // 添加密码
-    const correctPassword = "258062..";
+    const correctPassword = "258062";
 
     plugin.initializeWorkspace = function () {
         prepareWorkspace();
@@ -36,6 +36,7 @@
                             const userInput = prompt("请输入密码:");
                             if (userInput !== correctPassword) {
                                 alert("密码错误，无法展开块！");
+                                // 取消展开块
                                 return;
                             }
                         }
