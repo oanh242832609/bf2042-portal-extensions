@@ -1,0 +1,8 @@
+{
+    "id": "Subprogram Name",
+    "name": "子程序名称更改",
+    "version": "1.0.0",
+    "description": "更改子程序显示的名称更容易让自己理解",
+    "author": "zhujiu1207",
+    "main": "index.js"
+}
