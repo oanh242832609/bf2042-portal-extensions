@@ -1,24 +1,23 @@
-/* global BF2042Portal, _Blockly */
-// 定义包含原始函数的对象
+// Define an object containing the original function
 const functionContainer = {
     originalFunction: function() {
         console.log("This is the original function.");
     }
 };
 
-// 输出原始函数的名称
+// Output the name of the original function
 console.log("Original function name:", functionContainer.originalFunction.name);
 
-// 更改函数名称，通过对象的属性
+// Change the function name by adding a new property to the object
 functionContainer.modifiedFunction = function() {
     console.log("This is the modified function.");
 };
 
-// 输出修改后的函数的名称
+// Output the name of the modified function
 console.log("Modified function name:", functionContainer.modifiedFunction.name);
 
-// 调用原始函数
+// Call the original function
 functionContainer.originalFunction();
 
-// 使用修改后的名称调用
+// Call the modified function using the new name
 functionContainer.modifiedFunction();
