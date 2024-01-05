@@ -1,7 +1,7 @@
 {
     "versions": {
         "stable": {
-            "name": "推荐",
+            "name": "功能插件",
             "url": "https://zhujiu1207.github.io/bf2042-portal-extensions/dist/stable/app.js",
             "pluginManager": {
                 "baseUrl": "https://zhujiu1207.github.io/bf2042-portal-extensions/plugins/plugin-manager",
