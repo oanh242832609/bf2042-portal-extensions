@@ -1,6 +1,6 @@
 {
     "id": "doubleclick-tools",
-    "name": "Double-click Tools",
+    "name": "代码块快速操作",
     "version": "2.0.0",
     "description": "双击代码块时展开或者折叠, CTRL+双击可以水平或者垂直显示模块",
     "author": "zhujiu1207",
