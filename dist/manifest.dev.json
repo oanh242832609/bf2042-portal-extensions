@@ -8,13 +8,3 @@
                 "main": "index.js"
             }
         },
-        "latest": {
-            "name": "Latest (master)",
-            "url": "https://zhujiu1207.github.io/bf2042-portal-extensions/dist/latest/app.js",
-            "pluginManager": {
-                "baseUrl": "https://zhujiu1207.github.io/bf2042-portal-extensions/plugins/plugin-manager",
-                "main": "index.js"
-            }
-        }
-    }
-}
