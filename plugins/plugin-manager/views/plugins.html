@@ -2,18 +2,16 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <h1>Plugins</h1>
+                <h1>扩展插件</h1>
 
                 <p>
-                    Below you can manage all plugins that should be loaded for
-                    the Rules Editor.
+                    在下面，您可以管理为规则编辑器额外加载的所有插件.
                 </p>
 
                 <div class="alert alert-danger">
-                    <span class="font-weight-bold">Important!</span> Plugins can
-                    manipulate anything on
+                    <span class="font-weight-bold">Important!</span> 扩展插件可以操控该网页上的内容
                     <pre class="d-inline">https://portal.battlefield.com/</pre>
-                    , you should only add plugins from people you trust!
+                    , 您应该只添加来自您信任的人的插件！
                 </div>
 
                 <div class="mb-3 text-right">
@@ -22,7 +20,7 @@
                         ng-click="vm.showAddModal()"
                     >
                         <span class="bi bi-plus-square mr-1"></span>
-                        Add plugin
+                        添加插件
                     </button>
                 </div>
 
@@ -32,18 +30,18 @@
                     >
                         <thead>
                             <tr>
-                                <th style="width: 1px"></th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Author</th>
-                                <th>Version</th>
-                                <th>Manifest</th>
-                                <th>Actions</th>
+                                <th style="width: 1px">开关</th>
+                                <th>名称</th>
+                                <th>描述</th>
+                                <th>作者</th>
+                                <th>版本</th>
+                                <th>链接</th>
+                                <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr
-                                ng-repeat="plugin in vm.plugins | orderBy:'manifest.name' track by $index"
+                                ng-repeat="plugin in vm.plugins | orderBy:'manifest.name' track 作者 $index"
                             >
                                 <td class="align-middle">
                                     <a
@@ -122,7 +120,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">
-                        <span ng-if="!vm.pluginUpdate">Add Plugin</span>
+                        <span ng-if="!vm.pluginUpdate">添加插件</span>
                         <span ng-if="vm.pluginUpdate">Update Plugin</span>
                     </h5>
 
@@ -143,7 +141,7 @@
                         <input
                             type="text"
                             class="form-control"
-                            placeholder="Enter an URL to a manifest.json file"
+                            placeholder="输入manifest.json文件的URL"
                             ng-model="vm.pluginManifestUrl"
                             ng-disabled="vm.pluginUpdate"
                         />
@@ -154,7 +152,7 @@
                                 ng-click="vm.reviewPlugin()"
                                 ng-if="!vm.pluginUpdate"
                             >
-                                Review
+                                预览
                             </button>
                         </div>
                     </div>
@@ -201,7 +199,7 @@
                             >
                         </div>
                         <div class="alert alert-danger">
-                            <span class="font-weight-bold">Important!</span>
+                            <span class="font-weight-bold">重要通知！</span>
                             Please review the contents of the main-file before
                             confirming!
                         </div>
@@ -219,7 +217,7 @@
                         class="btn btn-secondary"
                         data-dismiss="modal"
                     >
-                        Close
+                        取消
                     </button>
                     <button
                         type="button"
@@ -227,7 +225,7 @@
                         ng-disabled="!vm.pluginConfirm"
                         ng-click="vm.confirmPlugin()"
                     >
-                        Confirm
+                        确认
                     </button>
                 </div>
             </div>
