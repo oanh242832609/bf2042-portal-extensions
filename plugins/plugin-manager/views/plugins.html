@@ -41,7 +41,7 @@
                         </thead>
                         <tbody>
                             <tr
-                                ng-repeat="plugin in vm.plugins | orderBy:'manifest.name' track 作者 $index"
+                                ng-repeat="plugin in vm.plugins | orderBy:'manifest.name' track by $index"
                             >
                                 <td class="align-middle">
                                     <a
