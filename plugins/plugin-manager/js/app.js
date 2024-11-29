@@ -129,7 +129,7 @@ app.controller("PluginsController", function ($scope, $rootScope, api) {
         if (
             !plugin.liveReload &&
             !confirm(
-                `Are you sure you wish to update '${
+                `您确定要更新吗 '${
                     plugin.manifest ? plugin.manifest.name : "Unknown"
                 }'?`,
             )
@@ -157,7 +157,7 @@ app.controller("PluginsController", function ($scope, $rootScope, api) {
     vm.delete = function (plugin) {
         if (
             !confirm(
-                `Are you sure you wish to remove '${
+                `您确定要删除吗 '${
                     plugin.manifest ? plugin.manifest.name : "Unknown"
                 }'?`,
             )
