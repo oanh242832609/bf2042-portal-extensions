@@ -2,16 +2,16 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <h1>扩展插件</h1>
+                <h1>Плагины расширений</h1>
 
                 <p>
-                    在下面，您可以管理为规则编辑器额外加载的所有插件.
+                    Ниже вы можете управлять всеми плагинами, дополнительно загружаемыми в редактор правил.
                 </p>
 
                 <div class="alert alert-danger">
-                    <span class="font-weight-bold">重要通知！</span> 扩展插件可以操控该网页上的内容
+                    <span class="font-weight-bold">Важное уведомление!</span> Плагины расширений могут манипулировать содержимым на этой веб-странице
                     <pre class="d-inline">https://portal.battlefield.com/</pre>
-                    , 您应该只添加来自您信任的人的插件！
+                    , Вы должны добавлять только плагины от людей, которым доверяете!
                 </div>
 
                 <div class="mb-3 text-right">
@@ -20,7 +20,7 @@
                         ng-click="vm.showAddModal()"
                     >
                         <span class="bi bi-plus-square mr-1"></span>
-                        添加插件
+                        Добавить плагин
                     </button>
                 </div>
 
@@ -30,13 +30,13 @@
                     >
                         <thead>
                             <tr>
-                                <th style="width: 1px">开关</th>
-                                <th>名称</th>
-                                <th>描述</th>
-                                <th>作者</th>
-                                <th>版本</th>
-                                <th>链接</th>
-                                <th>操作</th>
+                                <th style="width: 1px">Включено</th>
+                                <th>Название</th>
+                                <th>Описание</th>
+                                <th>Автор</th>
+                                <th>Версия</th>
+                                <th>Ссылка</th>
+                                <th>Действия</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -120,7 +120,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">
-                        <span ng-if="!vm.pluginUpdate">添加插件</span>
+                        <span ng-if="!vm.pluginUpdate">Добавить плагин</span>
                         <span ng-if="vm.pluginUpdate">Update Plugin</span>
                     </h5>
 
@@ -141,7 +141,7 @@
                         <input
                             type="text"
                             class="form-control"
-                            placeholder="输入manifest.json文件的URL"
+                            placeholder="Введите URL файла manifest.json"
                             ng-model="vm.pluginManifestUrl"
                             ng-disabled="vm.pluginUpdate"
                         />
@@ -152,7 +152,7 @@
                                 ng-click="vm.reviewPlugin()"
                                 ng-if="!vm.pluginUpdate"
                             >
-                                预览
+                                Предпросмотр
                             </button>
                         </div>
                     </div>
@@ -199,8 +199,8 @@
                             >
                         </div>
                         <div class="alert alert-danger">
-                            <span class="font-weight-bold">重要通知！</span>
-                            请在确认前查看扩展插件代码内容是否安全！
+                            <span class="font-weight-bold">Важное уведомление!</span>
+                            Перед подтверждением проверьте код плагина расширения на безопасность!
                         </div>
                         <div>
                             <pre style="overflow: auto; max-height: 300px">
@@ -216,7 +216,7 @@
                         class="btn btn-secondary"
                         data-dismiss="modal"
                     >
-                        取消
+                        Отмена
                     </button>
                     <button
                         type="button"
@@ -224,7 +224,7 @@
                         ng-disabled="!vm.pluginConfirm"
                         ng-click="vm.confirmPlugin()"
                     >
-                        确认
+                        Подтвердить
                     </button>
                 </div>
             </div>

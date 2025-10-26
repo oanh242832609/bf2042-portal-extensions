@@ -116,7 +116,7 @@
 
             return {
                 id: "pluginManager",
-                displayText: "管理模块插件",
+                displayText: "Управление плагинами модуля",
                 scopeType: _Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
                 weight: 100,
                 preconditionFn: precondition,

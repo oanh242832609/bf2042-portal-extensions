@@ -278,7 +278,7 @@ const imageDataUrlCache = new Map<string, string>();
 
 //Blockly functions - Items
 function copyToClipboard(): RegistryItem {
-    const errorMessage = "Failed to copy to clipboard!";
+    const errorMessage = "Не удалось скопировать в буфер обмена!";
 
     function precondition(): string {
         return "enabled";
@@ -305,7 +305,7 @@ function copyToClipboard(): RegistryItem {
 
     return {
         id: "copyToClipboard",
-        displayText: "Copy to Clipboard",
+        displayText: "Скопировать в буфер обмена",
         scopeType: BlocklyWrapper.ContextMenu.ScopeType.BLOCK,
         weight: 100,
         preconditionFn: precondition,
@@ -314,7 +314,7 @@ function copyToClipboard(): RegistryItem {
 }
 
 function pasteFromClipboard(): RegistryItem {
-    const errorMessage = "Failed to paste from clipboard!";
+    const errorMessage = "Не удалось вставить из буфера обмена!";
 
     //NOTE: Unfortunately precondition cannot be async, so we cannot check if the clipboard contains valid XML beforehand.
     function precondition(): string {
@@ -337,7 +337,7 @@ function pasteFromClipboard(): RegistryItem {
 
     return {
         id: "pasteFromClipboard",
-        displayText: "Paste from Clipboard",
+        displayText: "Вставить из буфера обмена",
         scopeType: BlocklyWrapper.ContextMenu.ScopeType.WORKSPACE,
         weight: 100,
         preconditionFn: precondition,
@@ -347,15 +347,15 @@ function pasteFromClipboard(): RegistryItem {
 
 function toggleComments(): RegistryItem {
     function displayText(scope: Scope): string {
-        const toggleType = scope.block.getCommentIcon() ? "Remove" : "Add";
+        const toggleType = scope.block.getCommentIcon() ? "Удалить" : "Добавить";
 
         const blocks = getSelectedBlocks(scope);
 
         if (blocks.length === 1) {
-            return `${toggleType} Comment`;
+            return `${toggleType} комментарий`;
         }
 
-        return `${toggleType} Comment (${blocks.length} Blocks)`;
+        return `${toggleType} комментарий (${blocks.length} блоков)`;
     }
 
     function precondition(): string {
@@ -385,16 +385,16 @@ function toggleComments(): RegistryItem {
 function toggleInputs(): RegistryItem {
     function displayText(scope: Scope): string {
         const toggleType = scope.block.getInputsInline()
-            ? "Vertically"
-            : "Horizontally";
+            ? "Вертикально"
+            : "Горизонтально";
 
         const blocks = getSelectedBlocks(scope);
 
         if (blocks.length === 1) {
-            return `Show Inputs ${toggleType}`;
+            return `Показать входы ${toggleType}`;
         }
 
-        return `Show Inputs ${toggleType} (${blocks.length} Blocks)`;
+        return `Показать входы ${toggleType} (${blocks.length} блоков)`;
     }
 
     function precondition(): string {
@@ -423,15 +423,15 @@ function toggleInputs(): RegistryItem {
 
 function toggleCollapse(): RegistryItem {
     function displayText(scope: Scope): string {
-        const toggleType = scope.block.isCollapsed() ? "Expand" : "Collapse";
+        const toggleType = scope.block.isCollapsed() ? "Развернуть" : "Свернуть";
 
         const blocks = getSelectedBlocks(scope);
 
         if (blocks.length === 1) {
-            return `${toggleType} Block`;
+            return `${toggleType} блок`;
         }
 
-        return `${toggleType} ${blocks.length} Blocks`;
+        return `${toggleType} ${blocks.length} блоков`;
     }
 
     function precondition(): string {
@@ -464,13 +464,13 @@ function collapseAllBlocks(): RegistryItem {
 
         if (blocks) {
             if (blocks.length === 1) {
-                return "Collapse Block";
+                return "Свернуть блок";
             }
 
-            return `Collapse ${blocks.length} Blocks`;
+            return `Свернуть ${blocks.length} блоков`;
         }
 
-        return "Collapse All Blocks";
+        return "Свернуть все блоки";
     }
 
     function precondition(): string {
@@ -509,13 +509,13 @@ function expandAllBlocks(): RegistryItem {
 
         if (blocks) {
             if (blocks.length === 1) {
-                return "Expand Block";
+                return "Развернуть блок";
             }
 
-            return `Expand ${blocks.length} Blocks`;
+            return `Развернуть ${blocks.length} блоков`;
         }
 
-        return "Expand All Blocks";
+        return "Развернуть все блоки";
     }
 
     function precondition(): string {
@@ -567,7 +567,7 @@ function deleteModBlock(): RegistryItem {
 
     return {
         id: "deleteModBlock",
-        displayText: "Delete Mod Block",
+        displayText: "Удалить MOD блок",
         scopeType: BlocklyWrapper.ContextMenu.ScopeType.BLOCK,
         weight: 100,
         preconditionFn: precondition,
@@ -588,7 +588,7 @@ function openDocumentation(): RegistryItem {
 
     return {
         id: "openDocumentation",
-        displayText: "Open Documentation",
+        displayText: "Открыть документацию",
         scopeType: BlocklyWrapper.ContextMenu.ScopeType.WORKSPACE,
         weight: 100,
         preconditionFn: precondition,
@@ -622,7 +622,7 @@ function jumpToSubRoutine(): RegistryItem {
 
     return {
         id: "jumpToSubRoutine",
-        displayText: "Jump to Subroutine",
+        displayText: "Перейти к подпрограмме",
         scopeType: BlocklyWrapper.ContextMenu.ScopeType.BLOCK,
         weight: 100,
         preconditionFn: precondition,
@@ -643,7 +643,7 @@ function toggleDistractionFreeMode(): RegistryItem {
 
     return {
         id: "toggleDistractionFreeMode",
-        displayText: "Toggle Distraction-Free Mode",
+        displayText: "Переключить режим без отвлекающих элементов",
         scopeType: BlocklyWrapper.ContextMenu.ScopeType.WORKSPACE,
         weight: 100,
         preconditionFn: precondition,
@@ -664,7 +664,7 @@ function toggleToolbox(): RegistryItem {
 
     return {
         id: "toggleToolbox",
-        displayText: "Toggle Toolbox",
+        displayText: "Переключить панель инструментов",
         scopeType: BlocklyWrapper.ContextMenu.ScopeType.WORKSPACE,
         weight: 100,
         preconditionFn: precondition,
@@ -718,7 +718,7 @@ function exportBlocks(id: string, scopeType: ScopeType): RegistryItem {
 
         if (BF2042Portal.Shared.isCopyBlobToClipboardSupported()) {
             menuItems.push({
-                text: "PNG (Clipboard)",
+                text: "PNG (Буфер обмена)",
                 enabled: true,
                 callback: () => exportToPngOnClipboard(scope),
             });
@@ -732,7 +732,7 @@ function exportBlocks(id: string, scopeType: ScopeType): RegistryItem {
         const xmlText = saveXml(blocks);
 
         if (!xmlText) {
-            alert("Failed to export XML!");
+            alert("Не удалось экспортировать XML!");
 
             return;
         }
@@ -759,9 +759,9 @@ function exportBlocks(id: string, scopeType: ScopeType): RegistryItem {
 
             downloadFile(pngData, "screenshot.png");
         } catch (e) {
-            BF2042Portal.Shared.logError("Failed to export PNG (Download)", e);
+            BF2042Portal.Shared.logError("Не удалось экспортировать PNG (загрузка)", e);
 
-            alert("Failed to export PNG (Download)!");
+            alert("Не удалось экспортировать PNG (загрузка)!");
         }
     }
 
@@ -773,11 +773,11 @@ function exportBlocks(id: string, scopeType: ScopeType): RegistryItem {
 
             await BF2042Portal.Shared.copyBlobToClipboard(blobData);
 
-            alert("Done!");
+            alert("Готово!");
         } catch (e) {
-            BF2042Portal.Shared.logError("Failed to export PNG (Clipboard)", e);
+            BF2042Portal.Shared.logError("Не удалось экспортировать PNG (буфер обмена)", e);
 
-            alert("Failed to export PNG (Clipboard)!");
+            alert("Не удалось экспортировать PNG (буфер обмена)!");
         }
     }
 
@@ -976,7 +976,7 @@ function exportBlocks(id: string, scopeType: ScopeType): RegistryItem {
                         throw "Unknown type";
                     }
                 } catch (e) {
-                    reject(`Failed to convert SVG: ${e}`);
+                    reject(`Не удалось конвертировать SVG: ${e}`);
                 }
             };
 
@@ -999,7 +999,7 @@ function exportBlocks(id: string, scopeType: ScopeType): RegistryItem {
 
     return {
         id: id,
-        displayText: "Export Blocks >",
+        displayText: "Экспорт блоков >",
         scopeType: scopeType,
         weight: 100,
         preconditionFn: precondition,
@@ -1027,7 +1027,7 @@ function importBlocksFromFile(): RegistryItem {
             fileReader.onload = function (e: ProgressEvent<FileReader>): void {
                 if (
                     confirm(
-                        "Do you want to remove all existing blocks before importing?",
+                        "Вы хотите удалить все существующие блоки перед импортом?",
                     )
                 ) {
                     BlocklyWrapper.getMainWorkspace().clear();
@@ -1043,15 +1043,15 @@ function importBlocksFromFile(): RegistryItem {
                         const loadData = JSON.parse(e.target.result as string);
 
                         if (!loadJson(loadData)) {
-                            alert("Failed to import workspace from JSON!");
+                            alert("Не удалось импортировать рабочую область из JSON!");
                         }
                     } else if (extension === "xml") {
                         if (!loadXml(e.target.result as string)) {
-                            alert("Failed to import workspace from XML!");
+                            alert("Не удалось импортировать рабочую область из XML!");
                         }
                     }
                 } catch (e) {
-                    alert("Failed to import workspace!");
+                    alert("Не удалось импортировать рабочую область!");
                 }
             };
 
@@ -1065,7 +1065,7 @@ function importBlocksFromFile(): RegistryItem {
 
     return {
         id: "importBlocksFromFile",
-        displayText: "Import Blocks from File",
+        displayText: "Импорт блоков из файла",
         scopeType: BlocklyWrapper.ContextMenu.ScopeType.WORKSPACE,
         weight: 100,
         preconditionFn: precondition,
@@ -1155,7 +1155,7 @@ function addBlock(): RegistryItem {
 
     return {
         id: "addBlock",
-        displayText: "Add Block >",
+        displayText: "Добавить блок >",
         scopeType: BlocklyWrapper.ContextMenu.ScopeType.WORKSPACE,
         weight: 100,
         preconditionFn: precondition,
@@ -1194,7 +1194,7 @@ function separator(id: string, scope: ScopeType): RegistryItem {
 function optionsWorkspace(): RegistryMenuItem {
     return createMenu(
         "optionsWorkspace",
-        "Options",
+        "Опции",
         BlocklyWrapper.ContextMenu.ScopeType.WORKSPACE,
     );
 }
@@ -1202,7 +1202,7 @@ function optionsWorkspace(): RegistryMenuItem {
 function optionsBlock(): RegistryMenuItem {
     return createMenu(
         "optionsBlock",
-        "Options",
+        "Опции",
         BlocklyWrapper.ContextMenu.ScopeType.BLOCK,
     );
 }
@@ -1314,7 +1314,7 @@ function saveXml(blocks: Array<BlockSvg>): string {
                 .replace("</xml>", "");
         }
     } catch (e) {
-        BF2042Portal.Shared.logError("Failed to save workspace!", e);
+        BF2042Portal.Shared.logError("Не удалось сохранить рабочую область!", e);
     }
 
     return undefined;
@@ -1336,7 +1336,7 @@ function loadJson(data: JsonWorkspaceFile): boolean {
 
         return true;
     } catch (e) {
-        BF2042Portal.Shared.logError("Failed to load workspace from JSON!", e);
+        BF2042Portal.Shared.logError("Не удалось загрузить рабочую область из JSON!", e);
     }
 
     return false;
@@ -1454,7 +1454,7 @@ function loadXml(xmlText: string): boolean {
 
         return true;
     } catch (e) {
-        BF2042Portal.Shared.logError("Failed to load workspace from XML!", e);
+        BF2042Portal.Shared.logError("Не удалось загрузить рабочую область из XML!", e);
     }
 
     return false;
@@ -1505,7 +1505,7 @@ function showContextMenuWithBack(options: Array<MenuOption>): void {
         []
             .concat(
                 {
-                    text: "< Back",
+                    text: "< Назад",
                     enabled: true,
                     callback: () => {
                         const menu = contextMenuStack.splice(
