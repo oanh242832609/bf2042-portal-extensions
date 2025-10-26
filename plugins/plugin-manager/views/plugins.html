@@ -1,0 +1,233 @@
+<div ng-controller="PluginsController as vm">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <h1>Плагины расширений</h1>
+
+                <p>
+                    Ниже вы можете управлять всеми плагинами, дополнительно загружаемыми в редактор правил.
+                </p>
+
+                <div class="alert alert-danger">
+                    <span class="font-weight-bold">Важное уведомление!</span> Плагины расширений могут манипулировать содержимым на этой веб-странице
+                    <pre class="d-inline">https://portal.battlefield.com/</pre>
+                    , Вы должны добавлять только плагины от людей, которым доверяете!
+                </div>
+
+                <div class="mb-3 text-right">
+                    <button
+                        class="btn btn-success"
+                        ng-click="vm.showAddModal()"
+                    >
+                        <span class="bi bi-plus-square mr-1"></span>
+                        Добавить плагин
+                    </button>
+                </div>
+
+                <div class="table-responsive">
+                    <table
+                        class="table table-striped table-bordered table-hover"
+                    >
+                        <thead>
+                            <tr>
+                                <th style="width: 1px">Включено</th>
+                                <th>Название</th>
+                                <th>Описание</th>
+                                <th>Автор</th>
+                                <th>Версия</th>
+                                <th>Ссылка</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                ng-repeat="plugin in vm.plugins | orderBy:'manifest.name' track by $index"
+                            >
+                                <td class="align-middle">
+                                    <a
+                                        class="btn"
+                                        ng-click="vm.toggleEnable(plugin)"
+                                    >
+                                        <span
+                                            class="bi bi-toggle-off"
+                                            ng-if="!plugin.enabled"
+                                        ></span>
+                                        <span
+                                            class="bi bi-toggle-on"
+                                            ng-if="plugin.enabled"
+                                        ></span>
+                                    </a>
+                                </td>
+                                <td class="align-middle">
+                                    {{plugin.manifest.name}}
+                                </td>
+                                <td class="align-middle">
+                                    {{plugin.manifest.description}}
+                                </td>
+                                <td class="align-middle">
+                                    {{plugin.manifest.author}}
+                                </td>
+                                <td class="align-middle">
+                                    {{plugin.manifest.version}}
+                                </td>
+                                <td class="align-middle">
+                                    <a
+                                        ng-href="{{plugin.manifestUrl}}"
+                                        target="_blank"
+                                        rel="noopener"
+                                        >{{plugin.manifestUrl}}</a
+                                    >
+                                </td>
+                                <td class="align-middle">
+                                    <a
+                                        ng-href="{{plugin.manifest.homepage}}"
+                                        class="btn"
+                                        target="_blank"
+                                        ng-if="plugin.manifest.homepage"
+                                        rel="noopener"
+                                    >
+                                        <span
+                                            class="bi bi-house-door-fill"
+                                        ></span>
+                                    </a>
+
+                                    <button
+                                        class="btn btn-success"
+                                        ng-click="vm.update(plugin)"
+                                    >
+                                        <span
+                                            class="bi bi-arrow-clockwise"
+                                        ></span>
+                                    </button>
+
+                                    <button
+                                        class="btn btn-danger"
+                                        ng-click="vm.delete(plugin)"
+                                    >
+                                        <span class="bi bi-trash"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="add-plugin-modal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <span ng-if="!vm.pluginUpdate">Добавить плагин</span>
+                        <span ng-if="vm.pluginUpdate">Update Plugin</span>
+                    </h5>
+
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div
+                        class="alert alert-warning"
+                        ng-if="vm.pluginManifestError"
+                    >
+                        {{vm.pluginManifestError}}
+                    </div>
+
+                    <div class="input-group mb-2">
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Введите URL файла manifest.json"
+                            ng-model="vm.pluginManifestUrl"
+                            ng-disabled="vm.pluginUpdate"
+                        />
+                        <div class="input-group-append">
+                            <button
+                                type="submit"
+                                class="btn btn-primary"
+                                ng-click="vm.reviewPlugin()"
+                                ng-if="!vm.pluginUpdate"
+                            >
+                                Предпросмотр
+                            </button>
+                        </div>
+                    </div>
+
+                    <div ng-if="vm.pluginManifest">
+                        <div>
+                            <span class="font-weight-bold">Id:</span>
+                            {{vm.pluginManifest.id}}
+                        </div>
+                        <div>
+                            <span class="font-weight-bold">Name:</span>
+                            {{vm.pluginManifest.name}}
+                        </div>
+                        <div ng-if="vm.pluginManifest.description">
+                            <span class="font-weight-bold">Description:</span>
+                            {{vm.pluginManifest.description}}
+                        </div>
+                        <div ng-if="vm.pluginManifest.author">
+                            <span class="font-weight-bold">Author:</span>
+                            {{vm.pluginManifest.author}}
+                        </div>
+                        <div>
+                            <span class="font-weight-bold">Version:</span>
+                            {{vm.pluginManifest.version}}
+                        </div>
+                        <div ng-if="vm.pluginManifest.homepage">
+                            <span class="font-weight-bold">Homepage:</span
+                            >&nbsp;
+                            <a
+                                href="{{vm.pluginManifest.homepage}}"
+                                target="_blank"
+                                rel="noopener"
+                                >{{vm.pluginManifest.homepage}}</a
+                            >
+                        </div>
+                        <div class="mb-3">
+                            <span class="font-weight-bold">Main-file:</span
+                            >&nbsp;
+                            <a
+                                href="{{vm.pluginBaseUrl}}/{{vm.pluginManifest.main}}"
+                                target="_blank"
+                                rel="noopener"
+                                >{{vm.pluginManifest.main}}</a
+                            >
+                        </div>
+                        <div class="alert alert-danger">
+                            <span class="font-weight-bold">Важное уведомление!</span>
+                            Перед подтверждением проверьте код плагина расширения на безопасность!
+                        </div>
+                        <div>
+                            <pre style="overflow: auto; max-height: 300px">
+{{vm.pluginMainContent}}</pre
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal"
+                    >
+                        Отмена
+                    </button>
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        ng-disabled="!vm.pluginConfirm"
+                        ng-click="vm.confirmPlugin()"
+                    >
+                        Подтвердить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

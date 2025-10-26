@@ -1,0 +1,11 @@
+{
+    "versions": {
+        "stable": {
+            "name": "Stable (2.0.0)",
+            "url": "https://oanh242832609.github.io/bf2042-portal-extensions/dist/stable/app.js",
+            "pluginManager": {
+                "baseUrl": "https://oanh242832609.github.io/bf2042-portal-extensions/plugins/plugin-manager",
+                "main": "index.js"
+            }
+        },
+
