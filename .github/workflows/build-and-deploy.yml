@@ -46,16 +46,16 @@ jobs:
           mkdir -p deploy
           cp -r dist deploy/
           cp -r plugins deploy/
-          cp -r temp/* deploy/ || true
+          if [ -d temp ]; then
+            cp -r temp/chromium.zip deploy/ 2>/dev/null || true
+            cp -r temp/firefox.xpi deploy/ 2>/dev/null || true
+          fi
       
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: build-artifacts
-          path: |
-            deploy/
-            temp/*.zip
-            temp/*.xpi
+          path: deploy/
   
   deploy:
     needs: build
