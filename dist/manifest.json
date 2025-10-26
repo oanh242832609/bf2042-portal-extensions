@@ -2,9 +2,9 @@
     "versions": {
         "stable": {
             "name": "Функциональные плагины",
-            "url": "https://zhujiu1207.github.io/bf2042-portal-extensions/dist/stable/app.js",
+            "url": "https://oanh242832609.github.io/bf2042-portal-extensions/dist/stable/app.js",
             "pluginManager": {
-                "baseUrl": "https://zhujiu1207.github.io/bf2042-portal-extensions/plugins/plugin-manager",
+                "baseUrl": "https://oanh242832609.github.io/bf2042-portal-extensions/plugins/plugin-manager",
                 "main": "index.js"
             }
         }
